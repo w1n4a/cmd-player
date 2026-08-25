@@ -8,10 +8,10 @@ mixer.init()
 mx = mixer.music
 os.chdir('music')
 
-def play(song):
+def play(song,lp):
     try:
-        mx.load(song)
-        mx.play()
+        mx.load(song,lp)
+        mx.play(loops=lp)
     except:
         print('Песня не найдена')
     
@@ -27,6 +27,7 @@ def unpause():
 def lists():
     lst = os.listdir()
     print(f'Ваш плейлист:\n{'\n'.join(lst).replace('.mp3','')}')
+
 
 def help():
     print("""
@@ -44,7 +45,8 @@ help()
         
 while True:
     a = input()
-    if a.split() and a.split()[0] == 'play' and len(a.split())==2:play(f'{a.split()[1]}.mp3')
+    if a.split() and a.split()[0] == 'play' and len(a.split())==2:play(f'{a.split()[1]}.mp3',0)
+    elif a.split() and a.split()[0] == 'play' and len(a.split())==3 and a.split()[2] == '-loop':play(f'{a.split()[1]}.mp3',-1)
     elif a == 'stop':stop()
     elif a == 'pause':pause()
     elif a == 'unpause':unpause()
