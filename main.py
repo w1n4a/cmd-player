@@ -10,7 +10,7 @@ os.chdir('music')
 
 def play(song,lp):
     try:
-        mx.load(song,lp)
+        mx.load(song)
         mx.play(loops=lp)
     except:
         print('Песня не найдена')
@@ -30,10 +30,9 @@ def lists():
 
 
 def help():
-    os.chdir(os.path.dirname(os.path.abspath(__file__))
-)
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     with open('README.md',"r",encoding="utf-8") as f:
-        print(f.read())
+        print(f.read().replace('*','').replace('#','').replace("'",''))
     print(f'\n{'-'*50}\n')
     os.chdir('music')
     
