@@ -30,9 +30,12 @@ def lists():
 
 
 def help():
+    os.chdir(os.path.dirname(os.path.abspath(__file__))
+)
     with open('README.md',"r",encoding="utf-8") as f:
-        print(f)
+        print(f.read())
     print(f'\n{'-'*50}\n')
+    os.chdir('music')
     
 help()
         
