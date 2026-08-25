@@ -30,11 +30,16 @@ def lists():
 
 
 def help():
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    with open('README.md',"r",encoding="utf-8") as f:
-        print(f.read().replace('*','').replace('#','').replace("'",''))
+    print("""
+                        _             _                       
+      ___ _ __ ___   __| |      _ __ | | __ _ _   _  ___ _ __ 
+     / __| '_ ` _ \ / _` |_____| '_ \| |/ _` | | | |/ _ \ '__|
+    | (__| | | | | | (_| |_____| |_) | | (_| | |_| |  __/ |   
+     \___|_| |_| |_|\__,_|     | .__/|_|\__,_|\__, |\___|_|   
+                               |_|            |___/
+          """)
+    print('🕹️ Команды:\n\nplay [name] — включить песню из плейлиста.\nplay [name] -loop — включить песню из плейлиста и повторять ее.\nstop — выключить песню.\npause — поставить на паузу.\nunpause — убрать паузу.\nlist — посмотреть плейлист.\nhelp — вызвать это меню.')
     print(f'\n{'-'*50}\n')
-    os.chdir('music')
     
 help()
         
